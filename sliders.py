@@ -48,6 +48,20 @@ class Board:
     def as_json_string(self):
         return json.dumps(self.grid, cls=NumpyArrayEncoder)
 
+    def as_ai_string(self):
+        # render the board as text in rows and columns with a space for the empty square
+        s = "\n"
+        for i in range(3):
+            for j in range(3):
+                if self.grid[i, j] is None:
+                    s += " "
+                else:
+                    s += str(self.grid[i, j])
+                s += " "
+            s += "\n"
+        return s
+
+
     def open_pos(self):
         (y, x) = np.where(self.grid == None)
         return (y[0], x[0])
@@ -109,6 +123,7 @@ class CLI:
                 print("Invalid move.")
 
     def ai(self, streamlit=False):
+        import pandas as pd
         board = Board()
         while board.is_win_state():
             board = Board()
@@ -119,19 +134,37 @@ class CLI:
 
         # set OPENAI_API_KEY in your environment
         llm = OpenAI(temperature=0)
+
+        def format(n):
+            if n is None:
+                return " "
+            else:
+                return n
+
+        if streamlit:
+            table_container = st.empty()
+
+        def update_container():
+            df = pd.DataFrame(board.grid,
+                              columns=["A", "B", "C"],
+                              index=["1", "2", "3"])
+            table_container.dataframe(df)
+
+        update_container()
+
         def get_board(*args, **kwargs):
-            return board.as_json_string()
+            return board.as_ai_string()
 
         def move(n: int):
             n = int(n)
             #import ipdb; ipdb.set_trace()
-            if streamlit:
-                st.write(f"Move: {n}")
+#            if streamlit:
+#                st.write(f"Move: {n}")
             (result, error, out) = board.move(n)
             if streamlit:
-                board.display(streamlit=True)
+                update_container()
             if result:
-                return board.as_json_string()
+                return board.as_ai_string()
             else:
                 return f"Invalid move: {error}"
         tools = [Tool(name="move",
@@ -145,7 +178,7 @@ class CLI:
                                  llm,
                                  agent="zero-shot-react-description",
                                  verbose=True)
-        agent.run("Use logical thinking to swap adjacent numbers with the empty space one by one until the board looks like [[1, 2, 3], [4, 5, 6], [7, 8, None]].  Do not skip any steps.")
+        agent.run("Use logical thinking to swap adjacent numbers with the empty space one by one until the board looks like this:\n\n1 2 3\n4 5 6\n7 8  \n\nDo not skip any steps.")
 
 if __name__ == '__main__':
     fire.Fire(CLI)
