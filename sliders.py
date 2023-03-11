@@ -141,19 +141,29 @@ class CLI:
             else:
                 return n
 
+        table_container = None
+
         if streamlit:
             table_container = st.empty()
 
         def update_container():
-            df = pd.DataFrame(board.grid,
-                              columns=["A", "B", "C"],
-                              index=["1", "2", "3"])
-            table_container.dataframe(df)
+            #df = pd.DataFrame(board.grid,
+            #                  columns=["A", "B", "C"],
+            #                  index=["1", "2", "3"])
+            #table_container.dataframe(df)
+            pass
 
         update_container()
 
         def get_board(*args, **kwargs):
             return board.as_ai_string()
+
+        def get_board_as_json(*args, **kwargs):
+            return board.as_json_string()
+
+        def submit_feedback(feedback):
+            # TODO: send feedback to a database
+            return "Thanks for the feedback!"
 
         def move(n: int):
             n = int(n)
@@ -170,9 +180,15 @@ class CLI:
         tools = [Tool(name="move",
                       description="Provide a number from 0-8 to move that number to the open space, if and only if it is adjacent to the open space.",
                       func=move),
-                 Tool(name="get_board",
-                      description="Get the current board state.",
-                      func=get_board)
+                 Tool(name="get_board_as_string",
+                      description="Get the current board state as a string.",
+                      func=get_board),
+                 Tool(name="get_board_as_json",
+                      description="Get the current board state as JSON.",
+                      func=get_board_as_json),
+                 Tool(name="submit_feedback",
+                      description="If you have suggestions for improvements to the tools, please submit them here.",
+                      func=submit_feedback)
                  ]
         agent = initialize_agent(tools,
                                  llm,
