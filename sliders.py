@@ -194,7 +194,7 @@ class CLI:
                                  llm,
                                  agent="zero-shot-react-description",
                                  verbose=True)
-        agent.run("Use logical thinking to swap adjacent numbers with the empty space one by one until the board looks like this:\n\n1 2 3\n4 5 6\n7 8  \n\nDo not skip any steps.")
+        agent.run("Use logical thinking to swap adjacent numbers with the empty space one by one until the board looks like this:\n\n1 2 3\n4 5 6\n7 8  \n\nDo not skip any steps.  Feel free to submit feedback if you'd like.")
 
 if __name__ == '__main__':
     fire.Fire(CLI)
