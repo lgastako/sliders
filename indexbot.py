@@ -32,6 +32,7 @@ class CLI:
                 contents = open(filename).read()
                 doc = doc_from_bytes(contents)
                 index.insert(doc)
+                index.save_to_disk(index_path)
                 return f"The file {filename} was indexed successfully."
             except Exception as e:
                 return f"The file {filename} could not be indexed due to an error: {e}"
@@ -41,6 +42,7 @@ class CLI:
                 contents = requests.get(url).content
                 doc = doc_from_bytes(contents)
                 index.insert(doc)
+                index.save_to_disk(index_path)
                 return f"The URL {url} was indexed successfully."
             except Exception as e:
                 return f"The URL {url} could not be indexed due to an error: {e}"
@@ -64,10 +66,16 @@ class CLI:
                                  verbose=True)
 
         while True:
-            msg = "Enter a command like 'index the file a /tmp/foo.txt', 'index the URL <url>', or 'search for <query>' or 'exit' to quit.\n> "
+            msg = "\n".join(["Enter a command like:",
+                             "- index the file at /tmp/foo.txt",
+                             "- index the URL <url>",
+                             "- <query>",
+                             "Use 'Ctrl-C' or 'Ctrl-D' to quit.",
+                             "> "
+                             ])
             prompt = input(f"{msg} ")
-            if prompt == "exit":
-                break
+            if prompt.strip() == "":
+                continue
             agent.run(prompt)
 
 
