@@ -161,6 +161,16 @@ class CLI:
         def get_board_as_json(*args, **kwargs):
             return board.as_json_string()
 
+        def check_valid_move(n: int):
+            # TODO move into board
+            n = int(n)
+            (to_y, to_x) = board.open_pos()
+            (from_y, from_x) = board.location_of_n(n)
+            if adjacent((from_y, from_x), (to_y, to_x)):
+                return f"The move {n} is valid."
+            else:
+                return f"The move {n} is not valid."
+
         def submit_feedback(feedback):
             # TODO: send feedback to a database
             return "Thanks for the feedback!"
@@ -177,24 +187,29 @@ class CLI:
                 return board.as_ai_string()
             else:
                 return f"Invalid move: {error}"
-        tools = [Tool(name="move",
-                      description="Provide a number from 0-8 to move that number to the open space, if and only if it is adjacent to the open space.",
-                      func=move),
+        tools = [Tool(name="submit_feedback",
+                      description="If you have suggestions for improvements to the tools, please submit them here.",
+                      func=submit_feedback),
                  Tool(name="get_board_as_string",
                       description="Get the current board state as a string.",
                       func=get_board),
-                 Tool(name="get_board_as_json",
-                      description="Get the current board state as JSON.",
-                      func=get_board_as_json),
-                 Tool(name="submit_feedback",
-                      description="If you have suggestions for improvements to the tools, please submit them here.",
-                      func=submit_feedback)
+                 Tool(name="check_valid_move",
+                      description="Check if a move is valid.",
+                      func=check_valid_move),
+#                 Tool(name="get_board_as_json",
+#                      description="Get the current board state as JSON.",
+#                      func=get_board_as_json),
+                 Tool(name="move",
+                      description="Provide a number from 0-8 to move that number to the open space, if and only if it is adjacent to the open space.",
+                      func=move)
                  ]
         agent = initialize_agent(tools,
                                  llm,
                                  agent="zero-shot-react-description",
                                  verbose=True)
-        agent.run("Use logical thinking to swap adjacent numbers with the empty space one by one until the board looks like this:\n\n1 2 3\n4 5 6\n7 8  \n\nDo not skip any steps.  Feel free to submit feedback if you'd like.")
+#        agent.run("Use logical thinking to swap adjacent numbers with the empty space one by one until the board looks like this:\n\n1 2 3\n4 5 6\n7 8  \n\nDo not skip any steps.  Feel free to submit feedback if you'd like.")
+#        agent.run("Try each of the other tools and then submit feedback with suggestions for improvements.")
+        agent.run("Try each of the other tools and then tell me what could be improved.")
 
 if __name__ == '__main__':
     fire.Fire(CLI)
