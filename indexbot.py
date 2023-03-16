@@ -65,16 +65,24 @@ class CLI:
                                  agent="zero-shot-react-description",
                                  verbose=True)
 
+        help = """
+        Enter a command like:
+        - index the file at /tmp/foo.txt
+        - index the URL <url>
+        - or just a query about the indexed data.
+        Use 'Ctrl-C' or 'Ctrl-D' to quit.",
+        NB. The bot has no memory for now, so you must be a little more verbose and redundant.
+        """
+
+        print("IndexBot online.")
+        print("Enter 'help' for help. 'Ctrl-C' or 'Ctrl-D' to exit.")
+        print()
         while True:
-            msg = "\n".join(["Enter a command like:",
-                             "- index the file at /tmp/foo.txt",
-                             "- index the URL <url>",
-                             "- <query>",
-                             "Use 'Ctrl-C' or 'Ctrl-D' to quit.",
-                             "> "
-                             ])
-            prompt = input(f"{msg} ")
+            prompt = input("> ")
             if prompt.strip() == "":
+                continue
+            if prompt.strip().lower() == "help":
+                print(help)
                 continue
             agent.run(prompt)
 

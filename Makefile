@@ -20,6 +20,10 @@ ACCESS_TOKEN=ya29.a0AVvZVspLtWfyGXMMhZOzVVm23IYH6Mzvd9fuk-oqSGZBIy9k1JmCrSJOQjNS
 CAPTIONS_API=https://www.googleapis.com/youtube/v3/captions
 CURL=curl
 
+
+set-default-login-scope-stuff:
+	gcloud auth application-default login
+
 transcript-list:  ## Fetch transcript list for $(VIDEO_ID)
 	$(CURL) -sSL "$(CAPTIONS_API)?videoId=$(VIDEO_ID)&part=snippet&key=$(YOUTUBE_API_KEY)" \
     | jq .

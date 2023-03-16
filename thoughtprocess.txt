@@ -1,0 +1,81 @@
+% python indexbot.py ai                                                                                                130 ↵ ✹
+IndexBot online.
+Enter 'help' for help. 'Ctrl-C' or 'Ctrl-D' to exit.
+
+> what role does the investor play in a collaborative game?
+
+
+> Entering new AgentExecutor chain...
+ I need to understand what a collaborative game is and what an investor does
+Action: search_index
+Action Input: "collaborative game"INFO:root:> [query] Total LLM token usage: 1133 tokens
+INFO:root:> [query] Total embedding token usage: 4 tokens
+
+Observation: 
+A collaborative game is a type of game where all players win by keeping each other's interests in mind. It is a way of working that is illustrated by Trisha Ratliff in her guidebook, Innovation as a Collaborative Game. The goal of a collaborative game is to reduce emphasis on competition and increase emphasis on the dynamic of play that leads all players to benefiting. It involves three key players: the user, creator, and investor, all working directly together. The product user defines the problem and provides feedback, the investor controls the money and expects a benefit, and the creator designs, develops, and delivers the solution. By understanding the hopes and needs of each of the key players, they can all win.
+Thought: I now understand the role of the investor
+Action: None
+Final Answer: The investor in a collaborative game controls the money and expects a benefit from the product. They are responsible for understanding the hopes and needs of the other key players (user and creator) in order to ensure that all players benefit from the game.
+
+> Finished chain.
+> What role does the creator play?
+
+
+> Entering new AgentExecutor chain...
+ The creator is the one who adds content to the index.
+Action: search_index
+Action Input: What role does the creator play?INFO:root:> [query] Total LLM token usage: 1034 tokens
+INFO:root:> [query] Total embedding token usage: 7 tokens
+
+Observation: 
+The creator is someone who designs, develops, and delivers the solution. They have the skills and resources to design, build, and test new options, and they leverage feedback from experiments to continuously improve.
+Thought: I now know the final answer
+Final Answer: The creator is responsible for designing, developing, and delivering the solution, and leveraging feedback from experiments to continuously improve.
+
+> Finished chain.
+> What is the goal of a collabrative game?
+
+
+> Entering new AgentExecutor chain...
+ Collaborative games are designed to bring people together to work towards a common goal.
+Action: search_index
+Action Input: What is the goal of a collaborative game?INFO:root:> [query] Total LLM token usage: 1023 tokens
+INFO:root:> [query] Total embedding token usage: 9 tokens
+
+Observation: 
+The goal of a collaborative game is to reduce emphasis on competition and increase emphasis on the dynamic of play that leads all players to benefiting.
+Thought: I now know the final answer
+Final Answer: The goal of a collaborative game is to reduce emphasis on competition and increase emphasis on the dynamic of play that leads all players to benefiting.
+
+> Finished chain.
+> how does a collaborative game work?
+
+
+> Entering new AgentExecutor chain...
+ I should search the index for information about collaborative games
+Action: search_index
+Action Input: "collaborative game"INFO:root:> [query] Total LLM token usage: 1138 tokens
+INFO:root:> [query] Total embedding token usage: 4 tokens
+
+Observation: 
+A collaborative game is a type of game where all players win by keeping each other's interests in mind. It is a way of working that is illustrated by Trisha Ratliff in her guidebook, Innovation as a Collaborative Game. The goal of a collaborative game is to reduce emphasis on competition and increase emphasis on the dynamic of play that leads all players to benefiting. In a collaborative game, three key players are identified: the user, creator, and investor. All three players work directly together to solve a challenge, and they must establish a pattern of working on experiments together that are psychologically safe. Approaches such as DevOps, Lean Startup, Design Thinking, and Agile are all approaches that implicitly gain from a collaborative gaming mindset.
+Thought: I now know the final answer
+Final Answer: A collaborative game is a type of game where all players win by keeping each other's interests in mind. It is a way of working that is illustrated by Trisha Ratliff in her guidebook, Innovation as a Collaborative Game. The goal of a collaborative game is to reduce emphasis on competition and increase emphasis on the dynamic of play that leads all players to benefiting. In a collaborative game, three key players are identified: the user, creator, and investor. All three players work directly together to solve a challenge, and they must establish a pattern of working on experiments together that are psychologically safe. Approaches such as DevOps, Lean Startup, Design Thinking, and Agile are all approaches that implicitly gain from a collaborative gaming mindset.
+
+> Finished chain.
+> Who win's in a collaborative game?
+
+
+> Entering new AgentExecutor chain...
+ I need to search the index for information about collaborative games
+Action: search_index
+Action Input: "collaborative game"INFO:root:> [query] Total LLM token usage: 1133 tokens
+INFO:root:> [query] Total embedding token usage: 4 tokens
+
+Observation: 
+A collaborative game is a type of game where all players win by keeping each other's interests in mind. It is a way of working that is illustrated by Trisha Ratliff in her guidebook, Innovation as a Collaborative Game. The goal of a collaborative game is to reduce emphasis on competition and increase emphasis on the dynamic of play that leads all players to benefiting. It involves three key players: the user, creator, and investor, all working directly together. The product user defines the problem and provides feedback, the investor controls the money and expects a benefit, and the creator designs, develops, and delivers the solution. By understanding the hopes and needs of each of the key players, they can all win.
+Thought: I now know the final answer
+Final Answer: All players can win in a collaborative game by understanding the hopes and needs of each of the key players and working together to reduce emphasis on competition and increase emphasis on the dynamic of play.
+
+> Finished chain.
+> 

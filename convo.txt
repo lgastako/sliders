@@ -1,0 +1,38 @@
+
+> what role does the investor play in a collaborative game?
+
+The investor in a collaborative game controls the money and expects a benefit
+from the product. They are responsible for understanding the hopes and needs of
+the other key players (user and creator) in order to ensure that all players
+benefit from the game.
+
+> What role does the creator play?
+
+The creator is responsible for designing, developing, and delivering the
+solution, and leveraging feedback from experiments to continuously improve.
+
+> What is the goal of a collabrative game?
+
+The goal of a collaborative game is to reduce emphasis on competition and
+increase emphasis on the dynamic of play that leads all players to benefiting.
+
+> how does a collaborative game work?
+
+A collaborative game is a type of game where all players win by keeping each
+other's interests in mind. It is a way of working that is illustrated by Trisha
+Ratliff in her guidebook, Innovation as a Collaborative Game. The goal of a
+collaborative game is to reduce emphasis on competition and increase emphasis on
+the dynamic of play that leads all players to benefiting. In a collaborative
+game, three key players are identified: the user, creator, and investor. All
+three players work directly together to solve a challenge, and they must
+establish a pattern of working on experiments together that are psychologically
+safe. Approaches such as DevOps, Lean Startup, Design Thinking, and Agile are
+all approaches that implicitly gain from a collaborative gaming mindset.
+
+> Who wins in a collaborative game?
+
+All players can win in a collaborative game by understanding the hopes and needs
+of each of the key players and working together to reduce emphasis on
+competition and increase emphasis on the dynamic of play.
+
+
